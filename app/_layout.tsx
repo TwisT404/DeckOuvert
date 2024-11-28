@@ -9,6 +9,9 @@ export default function RootLayout() {
       <Stack.Screen name="deck/ChooseDecks" options={{
         headerShown: false,
       }}/>
+      <Stack.Screen name="info" options={{
+        // headerShown: false,
+      }}/>
   </Stack>
   )
 }
