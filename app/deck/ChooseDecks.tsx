@@ -1,7 +1,7 @@
 import {
   ActivityIndicator,
+  Alert,
   BackHandler,
-  Button,
   FlatList,
   Image,
   Pressable,
@@ -12,12 +12,36 @@ import {
 } from "react-native";
 import { useEffect, useState } from "react";
 import { router } from "expo-router";
+import { useNavigationState } from "@react-navigation/native";
+
 
 export default function ChooseDecks() {
-  //Block the return to the first page
-  BackHandler.addEventListener("hardwareBackPress", () => {
-    return true;
-  });
+
+  const isCurrentPage = useNavigationState(
+    (state) => state.routes[state.index].name === 'deck/ChooseDecks' // Check if the current page is 'deck/ChooseDecks' and return a bool
+  );
+  //Can't go the first of the game so install a back Handler
+  const handler = () =>{
+    if (isCurrentPage) {
+    Alert.alert('Attends!', "Es-tu sur de vouloir quiiter l'application?", [
+      {
+        text: 'Non',
+        onPress: () => null,
+        style: 'cancel',
+      },
+      {text: 'Partir', onPress: () => BackHandler.exitApp()},
+    ]);
+    
+      return true;
+    }
+    return false;
+  };
+  
+  useEffect(() => {
+    BackHandler.addEventListener("hardwareBackPress", handler);
+
+    return () => BackHandler.removeEventListener("hardwareBackPress", handler);
+  }, [handler]);
 
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -50,9 +74,9 @@ export default function ChooseDecks() {
       console.error(error);
     }
   };
-  // const sortedDataByDate = data.sort((a, b) => a["date_creation"] - b["date_creation"]);
-  // console.log(sortedDataByDate);
 
+  
+//Update when a value Min adn/or Max change on the 
   useEffect(() => {
     getAllDecksFromAPI();
     setIsPress(null);
@@ -87,15 +111,6 @@ export default function ChooseDecks() {
 
   return (
     <View style={styles.backgroundApp}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Choisissez un deck</Text>
-        <Pressable onPress={() => router.push("/info")}>
-          <Image
-            source={require("../../assets/images/info.png")}
-            style={styles.infoIcone}
-          />
-        </Pressable>
-      </View>
 
       <View style={styles.sortMinMax}>
         <Text style={styles.textInput}>
@@ -137,6 +152,7 @@ export default function ChooseDecks() {
                   onPress={() => setIsPress(item["id_deck"])}
                   style={[isSelected ? selectItem : null, styles.Pressable]}
                 >
+                  <Image style={{width: 35, height: 35,}} source={require("../../assets/images/livre.png")}/>
                   <Text style={styles.TitleDeck}>{item["titre_deck"]}</Text>
                 </Pressable>
               );
@@ -161,14 +177,6 @@ const styles = StyleSheet.create({
     gap: 30,
     paddingTop: 15,
     paddingBottom: 15,
-  },
-  title: {
-    width: "50%",
-    color: "white",
-    fontSize: 35,
-    textAlign: "center",
-    marginLeft: 50,
-    letterSpacing: 3,
   },
   infoIcone: {
     width: 35,
