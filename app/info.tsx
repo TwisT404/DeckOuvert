@@ -2,13 +2,10 @@ import { router } from "expo-router";
 import { BackHandler, View, Text, StyleSheet, Pressable } from "react-native";
 
 export default function Index() {
-  BackHandler.addEventListener("hardwareBackPress", () => {
-    return false;
-  });
+
 
   return (
     <View style={styles.view}>
-      <Text style={styles.title}>Comment jouer au jeu?</Text>
       <Text style={styles.description}>
         DeckOuvert est un jeu narratif stratégique développé par Nerial, mêlant
         éléments de simulation de règne et de jeu de cartes. Vous incarnez un
@@ -40,14 +37,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white",
     fontSize: 20,
-  },
-  title: {
-    width: 300,
-    letterSpacing: 3,
-    textAlign: "center",
-    fontSize: 40,
-    marginTop: 30,
-    color: "white",
+    marginTop: 50,
   },
   button: {
     marginTop: 50,
