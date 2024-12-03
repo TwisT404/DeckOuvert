@@ -34,7 +34,17 @@ export default function RootLayout() {
       <Stack.Screen
         name="deck/[deck_id]"
         options={{
-          // headerShown: false,
+          headerBackVisible: false,
+          headerTitle: () => (
+            <View style={{height: 100, justifyContent: "center", alignItems: "center", paddingBottom:15,}}>
+              <Text style={{color:"white", fontSize: 25, width: 200, textAlign: "center", letterSpacing: 3, fontWeight: "bold" }}>Informations sur le deck</Text>
+            </View>
+          ),
+          headerStyle:{
+            backgroundColor: "#07091A",
+          },
+          headerTitleAlign: "center",
+          headerTintColor: "white",
         }}
       />
       <Stack.Screen
@@ -43,7 +53,7 @@ export default function RootLayout() {
           headerBackVisible: false,
           headerTitle: () => (
             <View style={{height: 100, justifyContent: "center", alignItems: "center", paddingBottom:15,}}>
-              <Text style={{color:"white", fontSize: 25, width: 200, textAlign: "center", letterSpacing: 3, fontWeight: "bold" }}>Comment jouer à ce jeu</Text>
+              <Text style={{color:"white", fontSize: 25, width: 200, textAlign: "center", letterSpacing: 3, fontWeight: "bold" }}>Comment jouer à ce jeu ?</Text>
             </View>
           ),
           headerStyle:{
