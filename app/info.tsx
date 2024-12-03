@@ -18,7 +18,7 @@ export default function Index() {
         style={styles.button}
         onPress={() => router.push("/deck/ChooseDecks")}
       >
-        <Text style={{ color: "white" }}>Retour</Text>
+        <Text style={{ color: "white", fontSize: 16 }}>Retour</Text>
       </Pressable>
     </View>
   );

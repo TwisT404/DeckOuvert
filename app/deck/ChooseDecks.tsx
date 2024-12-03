@@ -102,7 +102,7 @@ export default function ChooseDecks() {
               });
             }}
           >
-            <Text style={{ color: "white" }}>Voir le deck</Text>
+            <Text style={{ color: "white", fontSize:16 }}>Voir le deck</Text>
           </Pressable>
         </View>
       );
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: 100,
+    width: 125,
     height: 45,
     justifyContent: "center",
     alignItems: "center",
