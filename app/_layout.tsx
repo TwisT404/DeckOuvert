@@ -15,32 +15,71 @@ export default function RootLayout() {
         options={{
           headerBackVisible: false,
           headerTitle: () => (
-            <View style={{height: 100, justifyContent: "center", alignItems: "center", paddingBottom:15,}}>
-              <Text style={{color:"white", fontSize: 25, width: 200, textAlign: "center", letterSpacing: 3, fontWeight: "bold" }}>Choississez votre livre</Text>
+            <View
+              style={{
+                height: 100,
+                justifyContent: "center",
+                alignItems: "center",
+                paddingBottom: 15,
+              }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 25,
+                  width: 200,
+                  textAlign: "center",
+                  letterSpacing: 3,
+                  fontWeight: "bold",
+                }}
+              >
+                Choississez votre livre
+              </Text>
             </View>
           ),
-          headerStyle:{
+          headerStyle: {
             backgroundColor: "#07091A",
           },
           headerTitleAlign: "center",
           headerTintColor: "white",
           headerRight: () => (
-            <Pressable  onPress={() => router.push("/info")}>
-              <Image style={{width:30, height: 30}} source={require("../assets/images/info.png")}/>
+            <Pressable onPress={() => router.push("/info")}>
+              <Image
+                style={{ width: 30, height: 30 }}
+                source={require("../assets/images/info.png")}
+              />
             </Pressable>
           ),
-         }}
+        }}
       />
       <Stack.Screen
         name="deck/[deck_id]"
         options={{
           headerBackVisible: false,
           headerTitle: () => (
-            <View style={{height: 100, justifyContent: "center", alignItems: "center", paddingBottom:15,}}>
-              <Text style={{color:"white", fontSize: 25, width: 200, textAlign: "center", letterSpacing: 3, fontWeight: "bold" }}>Informations sur le deck</Text>
+            <View
+              style={{
+                height: 100,
+                justifyContent: "center",
+                alignItems: "center",
+                paddingBottom: 15,
+              }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 25,
+                  width: 200,
+                  textAlign: "center",
+                  letterSpacing: 3,
+                  fontWeight: "bold",
+                }}
+              >
+                Informations sur le deck
+              </Text>
             </View>
           ),
-          headerStyle:{
+          headerStyle: {
             backgroundColor: "#07091A",
           },
           headerTitleAlign: "center",
@@ -52,11 +91,29 @@ export default function RootLayout() {
         options={{
           headerBackVisible: false,
           headerTitle: () => (
-            <View style={{height: 100, justifyContent: "center", alignItems: "center", paddingBottom:15,}}>
-              <Text style={{color:"white", fontSize: 25, width: 200, textAlign: "center", letterSpacing: 3, fontWeight: "bold" }}>Comment jouer à ce jeu ?</Text>
+            <View
+              style={{
+                height: 100,
+                justifyContent: "center",
+                alignItems: "center",
+                paddingBottom: 15,
+              }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 25,
+                  width: 200,
+                  textAlign: "center",
+                  letterSpacing: 3,
+                  fontWeight: "bold",
+                }}
+              >
+                Comment jouer à ce jeu ?
+              </Text>
             </View>
           ),
-          headerStyle:{
+          headerStyle: {
             backgroundColor: "#07091A",
           },
           headerTitleAlign: "center",
