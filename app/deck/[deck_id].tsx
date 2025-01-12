@@ -84,7 +84,7 @@ export default function DeckPresentation() {
                     style={[styles.btn, styles.play]}
                     onPress={() => {
                       router.push({
-                        pathname: "/deck/[deck_id]",
+                        pathname: "/game",
                         params: {
                           deck_id: item.id_deck,
                           titre_deck: item.titre_deck,

@@ -184,6 +184,9 @@ const styles = StyleSheet.create({
   },
   TitleDeck: {
     color: "white",
+    width:75,
+    textAlign: "center",
+    fontSize:15
   },
 
   sortMinMax: {
@@ -219,8 +222,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: 100,
     height: 100,
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     alignItems: "center",
+  
   },
 
   button: {

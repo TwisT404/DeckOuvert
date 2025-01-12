@@ -93,7 +93,7 @@ export default function RootLayout() {
           headerTitle: () => (
             <View
               style={{
-                height: 100,
+                height: 150,
                 justifyContent: "center",
                 alignItems: "center",
                 paddingBottom: 15,
@@ -119,6 +119,22 @@ export default function RootLayout() {
           headerTitleAlign: "center",
           headerTintColor: "white",
         }}
+      />
+      <Stack.Screen 
+        name="game" 
+        options={{
+          headerBackVisible: false,
+          headerShown: false,
+        }}
+          
+      />
+      <Stack.Screen 
+        name="credits" 
+        options={{
+          headerBackVisible: false,
+          headerShown: false,
+        }}
+          
       />
     </Stack>
   );
