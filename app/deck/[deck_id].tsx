@@ -10,10 +10,16 @@ import {
 } from "react-native";
 
 export default function DeckPresentation() {
-  const { deck_id } = useLocalSearchParams<{ deck_id: string }>();
-  const [dataDeck, setData] = useState<any>([]);
+  
+  const [dataDeck, setData] = useState<any>([]);//DataDeck get information from the API
+
+  //Load to avoid bug to print API data
   const [isLoading, setLoading] = useState(true);
 
+  /** 
+   * API request to get deck information based on the data of the selected deck
+   */  
+  const { deck_id } = useLocalSearchParams<{ deck_id: string }>();
   const url = "https://mdubois.alwaysdata.net/apiReigns/v3/reigns/deck/id";
 
   const getDeckFromAPI = async () => {

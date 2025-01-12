@@ -33,16 +33,26 @@ export default function Play() {
     return () => BackHandler.removeEventListener("hardwareBackPress", handler);
   }, [handler]);
 
+
+  //Url API
   const url = "https://mdubois.alwaysdata.net/apiReigns/v3/reigns/carte/deck/order";
+  
+  //Get data from previous page
   const { deck_id } = useLocalSearchParams<{ deck_id: string }>();
   const { titre_deck } = useLocalSearchParams<{ titre_deck: string }>();
   const { deck_size } = useLocalSearchParams<{ deck_size: string }>();
-  const [OrdreSoumission, IncrementOrder] = useState<any>(0);
-  const [dataPage, SetDataPage] = useState<any>([]);
+  
+  const [dataPage, SetDataPage] = useState<any>([]);//adpat the value getting from the API request 
   const [isLoading, setLoading] = useState(true);
+
+  //Different Counter
+  const [OrdreSoumission, IncrementOrder] = useState<any>(0);
   const [FinanceCounter, IncrementFinCounter] = useState<any>(20);
   const [PopulationCounter, IncrementPopCounter] = useState<any>(20);
 
+  /**
+   * Request to API to get card by card from the deck by order of apparition
+   */
   const getCardsFromAPI = async () => {
     if (OrdreSoumission != 0) {
       try {
@@ -70,6 +80,9 @@ export default function Play() {
     }
   };
 
+  /**
+   * Update finance and population counter and ordre soumision
+   */
   function CounterChoices(choiceValue:string) {
     const [value1, value2] = choiceValue.split("/").map(Number); // Convert to numbers
     IncrementFinCounter((prev: number) => prev + value2);
@@ -77,20 +90,25 @@ export default function Play() {
     IncrementOrder((prev: number) => prev + 1);
 
   }
-
+  /**
+   * Game who adapt itself in fonction of OrdreSoumission or the different counter
+   * @returns 
+   */
   const RenderPage = () =>{
-    if(PopulationCounter === 0 || FinanceCounter === 0){
+    if(PopulationCounter <= 0 || FinanceCounter <= 0){
       return(
-        <View>
-          <Text>Vous avez perdu!</Text>
-          <Pressable onPress={()=>router.push(
+        <View style={finish.view}>
+          <Text style={[finish.text,{marginTop:"50%"}]}>Vous avez perdu!</Text>
+          <Pressable 
+            style={finish.button}
+            onPress={()=>router.push(
             {
               pathname: "/credits",
               params:{
                 deck_id: deck_id,
               }
             })}>
-            <Text>Voir les crédits</Text>
+            <Text style={finish.text}>Voir les crédits</Text>
           </Pressable>
         </View>
       );
@@ -171,7 +189,9 @@ export default function Play() {
       )
   }
 
-
+  /**
+   * Update when OrdreSoumission variable change under condition
+   */
   useEffect(() => {
     if (OrdreSoumission <= deck_size) {
       getCardsFromAPI();
@@ -270,7 +290,7 @@ const finish = StyleSheet.create({
       textAlign:"center",
       alignItems:"center",
       justifyContent:"center",
-      width: 150,
+      width: 200,
       height: 75,
       backgroundColor:"#3644DB",
 

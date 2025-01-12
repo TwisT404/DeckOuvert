@@ -20,7 +20,10 @@ export default function ChooseDecks() {
   const isCurrentPage = useNavigationState(
     (state) => state.routes[state.index].name === 'deck/ChooseDecks' // Check if the current page is 'deck/ChooseDecks' and return a bool
   );
-  //Can't go the first of the game so install a back Handler
+  /**
+   * Can't return on the first page with the back handler but can exit of the with it
+   * 
+  */
   const handler = () =>{
     if (isCurrentPage) {
     Alert.alert('Attends!', "Es-tu sur de vouloir quiiter l'application?", [
@@ -43,11 +46,15 @@ export default function ChooseDecks() {
     return () => BackHandler.removeEventListener("hardwareBackPress", handler);
   }, [handler]);
 
+
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  
+  //Use 2 numbers to define the what kind of deck the user want to play
   const [nbMin, setNbMin] = useState("");
   const [nbMax, setNbMax] = useState("");
 
+  //Define if the btn is pressed or not
   const [isPress, setIsPress] = useState(null);
 
   //Fetch on URL API in method GET
@@ -88,7 +95,10 @@ export default function ChooseDecks() {
     borderRadius: 5,
     borderColor: "#3644DB",
   };
-
+  /**
+   * Print a button to play when a deck is select
+   * @returns 
+   */
   const btnPlay = () => {
     if (isPress) {
       return (

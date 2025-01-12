@@ -33,7 +33,9 @@ export default function Credits() {
     const [isPress, setPress] = useState(false);
 
 
-
+    /**
+     * API request to send a like to the deck
+     */
     const giveLikeToDeck = async () => {
         try {
             await fetch(urlLike, {
@@ -52,6 +54,9 @@ export default function Credits() {
           }
     }
 
+    /**
+     * API request method to get makers of the deck
+     */
     const getMakersFromAPI = async () => {
         try {
           const response = await fetch(urlMaker, {
@@ -76,15 +81,19 @@ export default function Credits() {
       getMakersFromAPI();
     }, [isLoading]);
 
-    const handleLike = () => {
-      setPress(true);
-      giveLikeToDeck();
-      
+    /**
+     * verify if the button was pressed to avoid to send a lot of send of like
+     */
+    const handleLike = () => {   
+      if (!isPress) {
+        giveLikeToDeck();
+        setPress(true);
+      }
+
     };
   
     return (
       <View style={credits.container}>
-        <Text style={credits.title}>CRÉDITS POUR CE DECK</Text>
         <Text style={credits.subtitle}>Liste des auteurs:</Text>
         <View style={credits.listContainer}>
           {isLoading ? (
@@ -92,11 +101,11 @@ export default function Credits() {
           ) : (
             <FlatList
               data={dataMaker}
-              numColumns={3}
+              numColumns={4}
               keyExtractor={(item) => item["id_createur"]}
               renderItem={({ item }) => (
                 <View>
-                  <Text style={credits.author}>{item["nom_createur"]}</Text>
+                  <Text style={credits.author}>{item["nom_createur"]}, </Text>
                 </View>
               )}
             />
@@ -107,7 +116,7 @@ export default function Credits() {
           <Pressable onPress={handleLike}>
             <AntDesign
               name={isPress ? "heart" : "hearto"}
-              size={24}
+              size={35}
               color="blue"
             />
           </Pressable>
@@ -165,11 +174,15 @@ export default function Credits() {
     },
     backButton: {
       backgroundColor: "blue",
-      padding: 10,
+      width:150,
+      height: 75,
       borderRadius: 20,
+      justifyContent:"center",
+      marginBlock:50,
     },
     backButtonText: {
       color: "#fff",
       fontSize: 16,
+      textAlign:"center"
     },
   });

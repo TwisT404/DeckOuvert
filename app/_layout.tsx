@@ -25,12 +25,10 @@ export default function RootLayout() {
             >
               <Text
                 style={{
-                  color: "white",
                   fontSize: 25,
-                  width: 200,
-                  textAlign: "center",
-                  letterSpacing: 3,
+                  color: "#fff",
                   fontWeight: "bold",
+                  marginTop: 15,
                 }}
               >
                 Choississez votre livre
@@ -67,12 +65,10 @@ export default function RootLayout() {
             >
               <Text
                 style={{
-                  color: "white",
                   fontSize: 25,
-                  width: 200,
-                  textAlign: "center",
-                  letterSpacing: 3,
+                  color: "#fff",
                   fontWeight: "bold",
+                  marginBottom: 20
                 }}
               >
                 Informations sur le deck
@@ -101,12 +97,10 @@ export default function RootLayout() {
             >
               <Text
                 style={{
-                  color: "white",
                   fontSize: 25,
-                  width: 200,
-                  textAlign: "center",
-                  letterSpacing: 3,
+                  color: "#fff",
                   fontWeight: "bold",
+                  marginBottom: 20
                 }}
               >
                 Comment jouer à ce jeu ?
@@ -132,7 +126,22 @@ export default function RootLayout() {
         name="credits" 
         options={{
           headerBackVisible: false,
-          headerShown: false,
+          headerTitle: () => (
+              <View>
+                <Text style={{      
+                  fontSize: 25,
+                  color: "#fff",
+                  fontWeight: "bold",
+                  marginBottom: 20,
+                  marginTop: 20,
+                }}>CRÉDITS POUR CE DECK</Text>
+              </View>
+            
+            ),
+          headerStyle: {
+            backgroundColor: "#07091A",
+          },
+          headerTitleAlign: "center",
         }}
           
       />

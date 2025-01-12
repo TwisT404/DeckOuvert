@@ -3,7 +3,6 @@ import { BackHandler, View, Text, StyleSheet, Pressable } from "react-native";
 
 export default function Index() {
 
-
   return (
     <View style={styles.view}>
       <Text style={styles.description}>
@@ -24,6 +23,10 @@ export default function Index() {
   );
 }
 
+/**
+ * Create CSS object to apply on content
+ * @return void
+ */
 const styles = StyleSheet.create({
   view: {
     flex: 1,
