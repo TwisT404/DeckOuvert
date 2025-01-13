@@ -41,9 +41,10 @@ export default function RootLayout() {
           headerTitleAlign: "center",
           headerTintColor: "white",
           headerRight: () => (
-            <Pressable onPress={() => router.push("/info")}>
+            <Pressable onPress={() => router.push("/info")}
+            style={{width:"25%", height:"20%", alignItems:"center", justifyContent:"center"}}>
               <Image
-                style={{ width: 30, height: 30 }}
+                style={{ width: 40, height: 40 }}
                 source={require("../assets/images/info.png")}
               />
             </Pressable>

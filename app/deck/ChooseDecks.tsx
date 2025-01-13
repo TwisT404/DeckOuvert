@@ -146,7 +146,7 @@ export default function ChooseDecks() {
         </View>
       </View>
 
-      <View>
+      <View style={{justifyContent:"center", alignItems:"center"}}>
         {isLoading ? (
           <ActivityIndicator />
         ) : (
@@ -228,13 +228,12 @@ const styles = StyleSheet.create({
   },
 
   Pressable: {
-    marginLeft: 25,
     marginTop: 10,
     width: 100,
     height: 100,
     justifyContent: "space-evenly",
     alignItems: "center",
-  
+    margin: 10,
   },
 
   button: {
