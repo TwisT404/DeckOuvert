@@ -1,5 +1,6 @@
 import { router, Stack } from "expo-router";
 import { Image, ImageBackground, Pressable, Text, View } from "react-native";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function RootLayout() {
   return (
@@ -41,12 +42,9 @@ export default function RootLayout() {
           headerTitleAlign: "center",
           headerTintColor: "white",
           headerRight: () => (
-            <Pressable onPress={() => router.push("/info")}
-            style={{width:"25%", height:"20%", alignItems:"center", justifyContent:"center"}}>
-              <Image
-                style={{ width: 40, height: 40 }}
-                source={require("../assets/images/info.png")}
-              />
+            <Pressable onPressIn={() => router.push("/info")}
+            style={{ alignItems:"center", justifyContent:"center"}}>
+              <AntDesign name="infocirlceo" size={40} color="white" />
             </Pressable>
           ),
         }}
