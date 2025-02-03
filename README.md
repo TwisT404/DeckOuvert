@@ -1,8 +1,8 @@
 # Bienvenue sur DeckOuvert 👋
 ## Détail
  DeckOuvert est une application mobile réalisé en react native que j'ai confonctionné dans le cadre d'un projet de groupe.
- Ce jeu provient d'un projet scolaire travaillé en groupe où il fallait créer 
- un jeu mobile, une application Web du nom de EasyCréa pour la création de contenu pour le jeu mobile
+ Cette application mobile provient d'un projet scolaire travaillé en groupe où il fallait créer 
+ un application mobile, une application Web du nom de EasyCréa pour la création de contenu pour le jeu mobile
  et une api en php qui sert de base de données pour les deux applications.
 
  ## Parcours Utilisateur
