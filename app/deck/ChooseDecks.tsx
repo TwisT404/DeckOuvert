@@ -151,7 +151,7 @@ export default function ChooseDecks() {
           <ActivityIndicator />
         ) : (
           <FlatList
-            style={{ height: 400, overflowY: "scroll" }}
+            style={{ height: 350, overflowY: "scroll"}}
             data={data}
             numColumns={3}
             keyExtractor={(item) => item["id_deck"]}
@@ -162,7 +162,7 @@ export default function ChooseDecks() {
                   onPress={() => setIsPress(item["id_deck"])}
                   style={[isSelected ? selectItem : null, styles.Pressable]}
                 >
-                  <Image style={{width: 35, height: 35,}} source={require("../../assets/images/livre.png")}/>
+                  <Image style={{width: 30, height: 30,}} source={require("../../assets/images/livre.png")}/>
                   <Text style={styles.TitleDeck}>{item["titre_deck"]}</Text>
                 </Pressable>
               );
@@ -180,23 +180,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#07091A",
     flex: 1,
   },
-  header: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 30,
-    paddingTop: 15,
-    paddingBottom: 15,
-  },
-  infoIcone: {
-    width: 35,
-    height: 35,
-  },
   TitleDeck: {
     color: "white",
     width:75,
     textAlign: "center",
-    fontSize:15
+    fontSize:15,
   },
 
   sortMinMax: {
@@ -228,12 +216,11 @@ const styles = StyleSheet.create({
   },
 
   Pressable: {
-    marginTop: 10,
-    width: 100,
-    height: 100,
+    width: 125,
+    height: 125,
     justifyContent: "space-evenly",
     alignItems: "center",
-    margin: 10,
+    marginTop: 10,
   },
 
   button: {
